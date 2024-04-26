@@ -13,26 +13,20 @@ Dependencies: See requirements.txt for a list of Python dependencies.
 Getting Started
 To run the Anaj Becho website locally on your machine, follow these steps:
 
-Clone this repository to your local machine:
-bash
-Copy code
+1. Clone this repository to your local machine:
 git clone https://github.com/yourusername/anaj-becho.git
-Navigate to the project directory:
-bash
-Copy code
+2. Navigate to the project directory:
 cd anaj-becho
-Install the Python dependencies:
-Copy code
+3. Install the Python dependencies:
 pip install -r requirements.txt
-Set up the PostgreSQL database and configure the database settings in settings.py.
-Apply database migrations:
-Copy code
+4. Set up the PostgreSQL database and configure the database settings in settings.py.
+5. Apply database migrations:
 python manage.py migrate
-Run the development server:
-Copy code
+6. Run the development server:
 python manage.py runserver
-Access the Anaj Becho website in your web browser at http://127.0.0.1:8000.
-Contributing
+7. Access the Anaj Becho website in your web browser at http://127.0.0.1:8000.
+
+Contributing:
 Contributions are welcome! If you would like to contribute to the Anaj Becho project, please fork the repository, make your changes, and submit a pull request. We appreciate your contributions to improving our platform.
 
 License
