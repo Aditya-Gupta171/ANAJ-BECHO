@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %} Account {% endblock %}
+
+{% block main-content %} 
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <p>Account page</p>
+            <h1>Welcome {{instance.name}}</h1>
+            <a href="/account/logout"><button type="button" class="btn btn-danger">LOG OUT</button></a>
+        </div>
+    </div>
+</div>
+{% endblock %}

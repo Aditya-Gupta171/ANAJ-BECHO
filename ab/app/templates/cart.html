@@ -1,0 +1,180 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %} Cart {% endblock %}
+
+{% block main-content %} 
+
+{% if request.session.isloggedIn %}
+    <h1>Cart ke saman</h1>
+    
+    <section class="h-100 h-custom" style="background-color: #eee;">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col">
+              <div class="card">
+                <div class="card-body p-4">
+      
+                  <div class="row" >
+      
+                    <div class="col-lg-7">
+                      <h5 class="mb-3"><a href="#!" class="text-body"><i
+                            class="fas fa-long-arrow-alt-left me-2"></i>Continue shopping</a></h5>
+                      <hr>
+      
+                      <div class="d-flex justify-content-between align-items-center mb-4">
+                        <div>
+                          <p class="mb-1">Shopping cart</p>
+                          <p class="mb-0">You have {{count}} items in your cart</p>
+                        </div>
+                        <div>
+                          <p class="mb-0"><span class="text-muted">Sort by:</span> <a href="#!"
+                              class="text-body">price <i class="fas fa-angle-down mt-1"></i></a></p>
+                        </div>
+                      </div>
+
+
+      
+                      <div class="card mb-3" id="parentCard">
+
+
+                        <!-- <div class="card-body">
+                          <div class="d-flex justify-content-between">
+                            <div class="d-flex flex-row align-items-center">
+                              <div>
+                                <img
+                                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
+                                  class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
+                              </div>
+                              <div class="ms-3">
+                                <h5>Beetroot</h5>
+                                
+                              </div>
+                            </div>
+                            <div class="d-flex flex-row align-items-center">
+                              <div style="width: 50px;">
+                                <h5 class="fw-normal mb-0">1</h5>
+                              </div>
+                              <div style="width: 80px;">
+                                <h5 class="mb-0">50Rs</h5>
+                              </div>
+                            
+                            </div>
+                          </div>
+                        </div> -->
+
+                        <script>
+                            parentCard=document.getElementById('parentCard')
+                            cartArray={{cartList|safe}}
+                            cartArray.map(data=>{
+                                console.log(data)
+                                const cardBody = document.createElement('div');
+                        cardBody.classList.add('card-body');
+                    
+                        // Create d-flex container for content
+                        const flexContainer = document.createElement('div');
+                        flexContainer.classList.add('d-flex', 'justify-content-between');
+                    
+                        // Left-side content: image and name
+                        const leftContent = document.createElement('div');
+                        leftContent.classList.add('d-flex', 'flex-row', 'align-items-center');
+                    
+                        // Image element
+                        const imageDiv = document.createElement('div');
+                        const itemImage = document.createElement('img');
+                        itemImage.src = data.image;
+                        itemImage.classList.add('img-fluid', 'rounded-3');
+                        itemImage.alt = 'Shopping item';
+                        itemImage.style.width = '65px';
+                        imageDiv.appendChild(itemImage);
+                        leftContent.appendChild(imageDiv);
+                    
+                        // Name element
+                        const nameDiv = document.createElement('div');
+                        nameDiv.classList.add('ms-3')
+                        const itemName = document.createElement('h5');
+                        itemName.textContent = data.name;
+                        nameDiv.appendChild(itemName);
+                        leftContent.appendChild(nameDiv);
+                    
+                        // Right-side content: quantity and price
+                        const rightContent = document.createElement('div');
+                        rightContent.classList.add('d-flex', 'flex-row', 'align-items-center');
+                    
+                        // Quantity element
+                        const quantityDiv = document.createElement('div');
+                        quantityDiv.setAttribute('style','width: 50px;')
+                        const itemQuantity = document.createElement('h5');
+                        itemQuantity.classList.add('fw-normal', 'mb-0');
+                        itemQuantity.textContent = data.quantity;
+                        quantityDiv.appendChild(itemQuantity);
+                        rightContent.appendChild(quantityDiv);
+                    
+                        // Price element
+                        const priceDiv = document.createElement('div');
+                        priceDiv.setAttribute('style','width: 80px;')
+                        const itemPrice = document.createElement('h5');
+                        itemPrice.classList.add('mb-0');
+                        itemPrice.textContent = `${data.price}Rs`;
+                        priceDiv.appendChild(itemPrice);
+                        rightContent.appendChild(priceDiv);
+                    
+                        // Append leftContent and rightContent to flexContainer
+                        flexContainer.appendChild(leftContent);
+                        flexContainer.appendChild(rightContent);
+                    
+                        // Append flexContainer to cardBody
+                        cardBody.appendChild(flexContainer);
+                    
+                                parentCard.appendChild(cardBody)
+                            })
+                          </script>
+
+
+
+                       
+
+                      
+                    <div class="col-lg-5">
+      
+                      <div class="card bg-primary text-white rounded-3">
+                        <div class="card-body">
+                          <hr class="my-4">
+      
+                          
+      
+                          
+      
+                          <div class="d-flex justify-content-between mb-4">
+                            <p class="mb-2">Total(Incl. taxes)</p>
+                            <p class="mb-2">Rs. {{total}}</p>
+                          </div>
+      
+                          <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-info btn-block btn-lg">
+                            <div class="d-flex justify-content-between">
+                              <span>Rs. {{total}}</span>
+                              <span>Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
+                            </div>
+                          </button>
+      
+                        </div>
+                      </div>
+      
+                    </div>
+      
+                  </div>
+      
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      
+{% else %}
+
+Abhi login nhi h
+{% endif %}
+
+{% endblock %}

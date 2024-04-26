@@ -1,0 +1,145 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %} products {% endblock %}
+
+{% block main-content %} 
+<h1> products </h1>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card-container" id="mainContainer">
+                <!-- Cards go here -->
+                
+                <!-- <div class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-4 container max-w-md-50 max-h-md-50">
+                            <img src="\media\images\garlic.jpeg" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text"><small class="text-body">Last updated 3 mins ago</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var mainContainer=document.getElementById('mainContainer')
+    var productArray={{productInstance|safe}}
+    productArray.map((obj)=>{ 
+
+        const cardDiv = document.createElement('div');
+        cardDiv.classList.add('card', 'mb-3');
+
+        // Create row div
+        const rowDiv = document.createElement('div');
+        rowDiv.classList.add('row', 'g-0');
+
+        // Create column for image
+        const imgColumn = document.createElement('div');
+        imgColumn.classList.add('col-md-4');
+
+        // Create image element
+        const imgElement = document.createElement('img');
+        imgElement.src = obj.image;
+        imgElement.classList.add('img-fluid', 'rounded-start');
+        imgElement.alt = 'Card Image';
+
+        // Append image element to image column
+        imgColumn.appendChild(imgElement);
+
+        // Create column for card body
+        const bodyColumn = document.createElement('div');
+        bodyColumn.classList.add('col-md-8');
+
+        // Create card body div
+        const cardBody = document.createElement('div');
+        cardBody.classList.add('card-body');
+
+        // Create card title
+        const cardTitle = document.createElement('h5');
+        cardTitle.classList.add('card-title');
+        cardTitle.textContent = obj.name;
+
+        // Create card text
+        const cardText = document.createElement('p');
+        cardText.classList.add('card-text');
+        cardText.textContent =  obj.description;
+
+        // Create last updated text
+        const lastUpdatedText = document.createElement('p');
+        lastUpdatedText.classList.add('card-text');
+        const smallElement = document.createElement('small');
+        smallElement.classList.add('text-body','prc');
+        smallElement.textContent = `Rs. ${obj.price}/Kg`;
+        addBtn=document.createElement('button')
+        addBtn.classList.add('btn','btn-outline-success')
+        addBtn.setAttribute('onclick',`addProduct(${obj.product_id})`)
+        addBtn.id=obj.product_id
+        addBtn.textContent='Add to Cart'
+        
+                    
+        lastUpdatedText.appendChild(smallElement);
+
+        // Append title, text, and price to card body
+        cardBody.appendChild(cardTitle);
+        cardBody.appendChild(cardText);
+        cardBody.appendChild(lastUpdatedText);
+        cardBody.appendChild(addBtn)
+
+        // Append card body to body column
+        bodyColumn.appendChild(cardBody);
+
+        // Append image column and body column to row
+        rowDiv.appendChild(imgColumn);
+        rowDiv.appendChild(bodyColumn);
+
+        // Append row to card container
+        cardDiv.appendChild(rowDiv);
+        mainContainer.appendChild(cardDiv)
+        
+    })
+
+function addProduct(pId){
+    data={'pId':pId}
+    fetch('http://127.0.0.1:8000/addToCart/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+            alert('Some Error Occured')
+        }
+        
+    })
+    .then(data => {
+        alert('Product Added Successfully')
+        
+    })
+    .catch(error => {
+        alert('Error adding to cart');
+        // Handle errors encountered during fetch
+    });
+
+}
+</script>
+<style>
+    .prc{
+        font-weight: bold;
+    }
+</style>
+
+
+{% endblock %}

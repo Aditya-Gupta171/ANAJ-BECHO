@@ -1,0 +1,124 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %} Home {% endblock %}
+
+{% block main-content %} 
+<style>
+  /* Center the card */
+  .card-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 10vh; /* Full viewport height */
+  }
+
+  /* Style for the card body */
+  .card-body {
+      background-color: #99cc67; /* Light gray background */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+      text-align: center;
+  }
+  .card-img-top {
+            height: 300px; /* Set the desired height for the image */
+            object-fit: cover; /* Maintain aspect ratio and cover the container */
+        }
+        
+</style>
+<!-- <h1> Home</h1> -->
+<div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <!-- <div class="">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <video class="d-block w-50" autoplay muted >
+            <source src="{% static 'images/banner/frame2.mp4' %}" type="video/mp4">
+          </video>
+        </div>
+        <div class="carousel-item">
+          <video class="d-block w-50" autoplay muted >
+            <source src="{% static 'images/banner/frame1.mp4' %}" type="video/mp4">
+          </video>
+        </div>
+        <div class="carousel-item">
+          <video class="d-block w-50" autoplay muted >
+            <source src="{% static 'images/banner/frame3.mp4' %}" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div> -->
+    <div class="container">
+      <div class="row justify-content-center">
+          <div class="col-md-8">
+              <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                  <div class="carousel-inner">
+                      <div class="carousel-item active">
+                          <video class="d-block w-100" autoplay muted>
+                              <source src="{% static 'images/banner/frame2.mp4' %}" type="video/mp4">
+                          </video>
+                      </div>
+                      <div class="carousel-item">
+                          <video class="d-block w-100" autoplay muted>
+                              <source src="{% static 'images/banner/frame1.mp4' %}" type="video/mp4">
+                          </video>
+                      </div>
+                      <div class="carousel-item">
+                          <video class="d-block w-100" autoplay muted>
+                              <source src="{% static 'images/banner/frame3.mp4' %}" type="video/mp4">
+                          </video>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <div class="card-container">
+    <div class="card">
+        <div class="card-body">
+            Empowering Rural India, Digitally
+        </div>
+    </div>
+</div>
+<div class="card mb-3">
+  <img class="card-img-top" src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8b3JnYW5pYyUyMGZhcm1pbmd8ZW58MHx8MHx8fDA%3D" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Organic Farming</h5>
+    <p class="card-text">Organic farming, also known as ecological farming or biological farming, is an agricultural system that uses fertilizers of organic origin such as compost manure, green manure, and bone meal and places emphasis on techniques such as crop rotation and companion planting</p>
+    <p class="card-text"><small class="text-muted"></small></p>
+  </div>
+</div>
+
+<div class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title">Terrace farming</h5>
+    <p class="card-text">In agriculture, a terrace is a piece of sloped plane that has been cut into a series of successively receding flat surfaces or platforms, which resemble steps, for the purposes of more effective farming. This type of landscaping is therefore called terracing</p>
+    <p class="card-text"><small class="text-muted"></small></p>
+  </div>
+  <img class="card-img-top" src="https://rocketskills.in/wp-content/uploads/2020/12/Screen-Shot-2020-12-12-at-9.50.52-AM-2.png" alt="Card image cap">
+</div>
+
+<div class="card" style="width: 18rem;">
+  <img src="https://media.licdn.com/dms/image/D4D03AQFIr-bfT0uKVA/profile-displayphoto-shrink_800_800/0/1685007390659?e=2147483647&v=beta&t=RVcK-hCrGllwS7zbVOb1T5qNp75adLHAlN_5A9OSMEA" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+
+</div>
+
+
+{% endblock %}

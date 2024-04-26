@@ -1,0 +1,37 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %} About Us {% endblock %}
+
+{% block main-content %}
+<div class="container py-5">
+    <h1 class="text-center mb-4">About Us</h1>
+
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <img src="https://media.istockphoto.com/id/1382273499/photo/agriculture-robotic-and-autonomous-car-working-in-smart-farm-future-5g-technology-with-smart.jpg?s=612x612&w=0&k=20&c=NaZ1ef7bXhv-4tG5RmM6zLB30UXoDLFiJd5upMphmPs=" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-uppercase">Our Motto</h5>
+                    <p class="card-text text-filter">
+                        Our motto is to teach uneducated farmers the importance of modern farming techniques.
+                    </p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-uppercase">Smart Farming</h5>
+                    <p class="card-text text-filter">
+                        Precision agriculture employs cutting-edge technologies to increase agricultural productivity while reducing adverse impacts on the environment. It uses advanced technology and data analysis to maximize crop yields, cut waste, and increase productivity.
+                    </p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+                <img src="https://t4.ftcdn.net/jpg/02/43/52/57/360_F_243525780_r8sdu06FUxVmqvf3YUthU5s9nE0z0lhh.jpg" class="card-img-bottom" alt="...">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
