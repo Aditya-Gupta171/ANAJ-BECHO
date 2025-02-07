@@ -14,7 +14,7 @@ Getting Started
 To run the Anaj Becho website locally on your machine, follow these steps:
 
 1. Clone this repository to your local machine:
-git clone https://github.com/yourusername/anaj-becho.git
+git clone https://github.com/Aditya-Gupta171/ANAJ-BECHO.git
 2. Navigate to the project directory:
 cd anaj-becho
 3. Install the Python dependencies:
